@@ -8,7 +8,8 @@ class MiniLLM(nn.Module):
         super(MiniLLM, self).__init__()
         self.embedding = Embedding(vocab_size, embedding_dim)
         self.positional_encoding = PositionalEncoding(embedding_dim)
-        self.transformer_blocks = nn.Sequential(*[TransformerBlock(embedding_dim, hidden_dim) for _ in range(num_layers)])
+        self.transformer_blocks = nn.Sequential(*[TransformerBlock(embedding_dim,
+                                                                   hidden_dim) for _ in range(num_layers)])
         self.output = nn.Linear(embedding_dim, vocab_size)
 
     def forward(self, x):

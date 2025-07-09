@@ -1,18 +1,9 @@
+dataset_path: './dataset/metamorphosis_clean.txt'
+model_path: './trained_model/mini_llm.pth'
+
 hyperparameters:
-  vocab:
-    hello: 0
-    world: 1
-    how: 2
-    are: 3
-    you: 4
-    "<UNK>": 5
   embedding_dim: 16
   hidden_dim: 32
   num_layers: 2
   learning_rate: 0.001
-  num_epochs: 100
-
-training:
-  data:
-    - "hello world how are you"
-    - "how are you hello world"
+  epochs: 160

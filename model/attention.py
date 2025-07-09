@@ -12,7 +12,9 @@ class SelfAttention(nn.Module):
         queries = self.query(x)
         keys = self.key(x)
         values = self.value(x)
-        scores = torch.bmm(queries, keys.transpose(1, 2)) / torch.sqrt(torch.tensor(x.size(-1), dtype=torch.float32))
+        scores = torch.bmm(queries,
+                           keys.transpose(1, 2)) / torch.sqrt(torch.tensor(x.size(-1),
+                                                                           dtype=torch.float32))
         attention_weights = torch.softmax(scores, dim=-1)
         attended_values = torch.bmm(attention_weights, values)
         return attended_values
